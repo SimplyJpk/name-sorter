@@ -27,3 +27,10 @@ jobs:
 
       - name: Test
         run: dotnet test --no-restore --verbosity normal
+        
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: Built Binary
+          path: name-sorter/name-sorter/name-sorter/bin/Release/net5.0/
+      
