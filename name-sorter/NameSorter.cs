@@ -26,7 +26,7 @@ namespace name_sorter
             }
         }
 
-        public void Save(string filePath)
+        public void SaveToDisk(string filePath)
         {
             File.WriteAllLines(filePath, _names.Select(name => name.ToString()));
         }
