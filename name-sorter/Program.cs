@@ -17,6 +17,8 @@ namespace name_sorter
             
             nameSorter.SaveToDisk("sorted-names-list.txt");
             nameSorter.Print();
+
+            Console.ReadLine();
         }
     }
 }

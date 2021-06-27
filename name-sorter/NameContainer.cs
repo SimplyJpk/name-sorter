@@ -3,9 +3,12 @@ using System.Linq;
 
 namespace name_sorter
 {
+    /// <summary>
+    /// Class that holds a full name of 0-3 given names, and at least 1 surname.
+    /// </summary>
     public class NameContainer : IComparable<NameContainer>
     {
-        public string FullName { get; protected set; }
+        public string FullName { get; }
         private readonly string[] _names;
         
         public NameContainer(string fullName)
@@ -38,13 +41,15 @@ namespace name_sorter
         {
             return string.Join(" ", _names.Where(n => n != Surname));
         }
-
+        
         public int CompareTo(NameContainer other)
         {
             return string.Compare(ToSortOrderSpelling(), other.ToSortOrderSpelling(),
                 StringComparison.InvariantCultureIgnoreCase);
         }
 
+        /// <summary> Orders names how the sort is expecting.</summary>
+        /// <returns>Surname followed by all Given names</returns>
         public string ToSortOrderSpelling()
         {
             return $"{Surname} {GetGivenNames()}";

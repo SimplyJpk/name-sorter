@@ -5,6 +5,9 @@ using System.Linq;
 
 namespace name_sorter
 {
+    /// <summary>
+    /// Class that accepts a filePath and used to sort names by Surname followed by Given names.
+    /// </summary>
     public class NameSorter
     {
         private NameContainer[] _names = null;
@@ -21,8 +24,7 @@ namespace name_sorter
             }
             catch (Exception e)
             {
-                Console.WriteLine(e);
-                throw;
+                throw new Exception(e.Message);
             }
         }
 

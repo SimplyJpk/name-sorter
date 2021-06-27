@@ -2,8 +2,16 @@
 
 namespace name_sorter
 {
+    /// <summary>
+    /// Simple BubbleSort, optimised for early exit.
+    /// </summary>
+    /// <typeparam name="T">is IComparable</typeparam>
     public static class BubbleSort<T> where T : IComparable<T>
     {
+        /// <summary>
+        /// Sorts elements of passed in array using a bubble sort algorithm
+        /// </summary>
+        /// <param name="items">Unsorted Array</param>
         public static void Sort(T[] items)
         {
             bool changed = false;

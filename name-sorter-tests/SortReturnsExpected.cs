@@ -4,7 +4,7 @@ using NUnit.Framework;
 
 namespace name_sorter_tests
 {
-    public class SortReturnsExpected
+    public class SortNameContainerReturnsExpected
     {
         [TestCase(new string[]
             {
@@ -34,7 +34,6 @@ namespace name_sorter_tests
                 "Frankie Conner Ritter",
                 "Shelby Nathan Yoder"
             })]
-        
         public void SortReturnsExpectedExample(string[] input, string[] expected)
         {
             // Arrange
@@ -43,13 +42,35 @@ namespace name_sorter_tests
             {
                 inputNames[index] = new NameContainer(input[index]);
             }
-            
             // Act
             BubbleSort<NameContainer>.Sort(inputNames);
             string[] sortedNames = inputNames.Select(n => n.FullName.ToString()).ToArray();
-            
             // Assert
             CollectionAssert.AreEqual(sortedNames, expected);
+        }
+
+        [Test]
+        public void TwoElementBubbleSort()
+        {
+            // Arrange
+            string[] elements = {"B", "A"};
+            string[] expected = {"A", "B"};
+            // Act
+            BubbleSort<string>.Sort(elements);
+            // Assert
+            CollectionAssert.AreEqual(elements, expected);
+        }
+
+        [Test]
+        public void FiveElementBubbleSort()
+        {
+            // Arrange
+            string[] elements = {"C", "A", "E", "D", "B"};
+            string[] expected = {"A", "B", "C", "D", "E"};
+            // Act
+            BubbleSort<string>.Sort(elements);
+            // Assert
+            CollectionAssert.AreEqual(elements, expected);
         }
     }
 }
